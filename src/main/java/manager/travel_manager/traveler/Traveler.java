@@ -1,4 +1,4 @@
-package traveler.entity;
+package manager.travel_manager.traveler.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "Traveler")
+@Table(name = "traveler")
 public class Traveler {
     @Id
     private Integer id;

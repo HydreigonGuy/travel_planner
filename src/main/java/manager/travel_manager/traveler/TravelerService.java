@@ -1,7 +1,7 @@
-package traveler.service;
+package manager.travel_manager.traveler.service;
 
-import traveler.entity.Traveler;
-import traveler.repository.TravelerRepo;
+import manager.travel_manager.traveler.entity.Traveler;
+import manager.travel_manager.traveler.repository.TravelerRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
