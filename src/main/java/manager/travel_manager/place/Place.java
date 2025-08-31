@@ -1,4 +1,4 @@
-package manager.travel_manager.trip.entity;
+package manager.travel_manager.place.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,9 +14,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "trip")
-public class Trip {
+@Table(name = "place")
+public class Place {
     @Id
     private Integer id;
-
+    private String name;
+    private Integer timezone;
 }
