@@ -17,7 +17,7 @@ public class PlaceService {
     private final PlaceRepo placeRepo;
 
     public List<Place> getAllPlaces() {
-        return placeRepo.placendAll();
+        return placeRepo.findAll();
     }
 
     public Place getPlaceById(Integer id) {

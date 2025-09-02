@@ -9,8 +9,8 @@ CREATE TABLE if not exists trip (
 
 CREATE TABLE if not exists place (
     id SERIAL PRIMARY KEY,
-    'name' varchar(250),
-    timezone tinyint
+    name varchar(250),
+    timezone smallint
 );
 
 CREATE TABLE if not exists destination (
@@ -23,6 +23,6 @@ CREATE TABLE if not exists travel (
     id SERIAL PRIMARY KEY,
     destination int REFERENCES place(id) ON DELETE CASCADE,
     origin int REFERENCES place(id) ON DELETE CASCADE,
-    departure_time datetime,
-    arrival_time datetime
+    departure_time timestamp,
+    arrival_time timestamp
 );
