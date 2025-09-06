@@ -47,8 +47,8 @@ requests.post(f"{url}/trip/addUser", json={
 # create destination
 r = requests.post(f"{url}/destination/", json={
     "id":1,
-    "tripID":id,
-    "placeID":1
+    "trip":id,
+    "place":1
 })
 dest_id = r.json()["id"]
 
