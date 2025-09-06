@@ -20,6 +20,10 @@ public class DestinationService {
         return destinationRepo.findAll();
     }
 
+    public List<Destination> getTripDestinations(Integer tripId) {
+        return destinationRepo.findByTrip(tripId);
+    }
+
     public Destination getDestinationById(Integer id) {
         Optional<Destination> optionalDestination = destinationRepo.findById(id);
         if (optionalDestination.isPresent()) {

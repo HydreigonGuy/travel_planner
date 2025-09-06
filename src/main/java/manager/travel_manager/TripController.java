@@ -21,6 +21,16 @@ class CreateTripRequest {
 }
 
 
+class GetTripResponse {
+    public Trip trip;
+    public List<Destination> destinations;
+
+    public GetTripResponse(Trip t) {
+        trip = t;
+    }
+}
+
+
 @RestController
 @RequestMapping("/trip")
 @RequiredArgsConstructor
@@ -31,8 +41,11 @@ public class TripController {
     private final DestinationService destinationService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Trip> getTripById(@PathVariable Integer id) {
-        return ResponseEntity.ok().body(tripService.getTripById(id));
+    public ResponseEntity<GetTripResponse> getTripById(@PathVariable Integer id) {
+        Trip trip = tripService.getTripById(id);
+        GetTripResponse response = new GetTripResponse(trip);
+        response.destinations = destinationService.getTripDestinations(id);
+        return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/")
