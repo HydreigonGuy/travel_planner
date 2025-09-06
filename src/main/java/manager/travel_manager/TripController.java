@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import manager.travel_manager.trip.entity.Trip;
 import manager.travel_manager.trip.service.TripService;
 import manager.travel_manager.destination.entity.Destination;
+import manager.travel_manager.destination.service.DestinationService;
 
 import lombok.RequiredArgsConstructor;
 import java.util.List;
@@ -27,6 +28,7 @@ class CreateTripRequest {
 public class TripController {
 
     private final TripService tripService;
+    private final DestinationService destinationService;
 
     @GetMapping("/{id}")
     public ResponseEntity<Trip> getTripById(@PathVariable Integer id) {
@@ -34,7 +36,9 @@ public class TripController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Trip> saveTrip(@RequestBody CreateTripRequest newTrip) {
-        return ResponseEntity.ok().body(tripService.saveTrip(newTrip.trip));
+    public ResponseEntity<String> saveTrip(@RequestBody CreateTripRequest newTrip) {
+        Integer newTripId = tripService.saveTrip(newTrip.trip).getId();
+        destinationService.saveDestination(newTrip.destination);
+        return ResponseEntity.ok().body("OK");
     }
 }

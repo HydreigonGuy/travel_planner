@@ -22,8 +22,14 @@ place_id = r.json()["places"][0]["id"]
 
 # create trip
 r = requests.post(f"{url}/trip/", json={
-    "id":1
-})
+    "trip":{
+        "id":6
+    },
+    "destination":{
+        "id":1,
+        "trip":6,
+        "place":3
+    }})
 id = r.json()["id"]
 
 

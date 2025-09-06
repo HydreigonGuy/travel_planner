@@ -23,4 +23,8 @@ public class PlaceController {
         return ResponseEntity.ok().body(placeService.getAllPlaces());
     }
 
+    @PostMapping("/")
+    public ResponseEntity<Place> savePlace(@RequestBody Place place) {
+        return ResponseEntity.ok().body(placeService.savePlace(place));
+    }
 }

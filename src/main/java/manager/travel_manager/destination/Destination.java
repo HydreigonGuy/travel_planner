@@ -24,11 +24,11 @@ public class Destination {
     @Id
     private Integer id;
     
-    @ManyToOne
-    @JoinColumn(name = "trip_id")
-    private Trip trip;
+    // @ManyToOne
+    // @JoinColumn(name = "trip_id")
+    private Integer trip;
 
-    @ManyToOne
-    @JoinColumn(name = "place_id")
-    private Place place;
+    // @ManyToOne
+    // @JoinColumn(name = "place_id")
+    private Integer place;
 }

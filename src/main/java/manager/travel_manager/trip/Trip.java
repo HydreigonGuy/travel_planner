@@ -25,4 +25,8 @@ public class Trip {
 
     //@OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     //private Set desinations = new HashSet();
+
+    public Integer getId() {
+        return id;
+    }
 }
